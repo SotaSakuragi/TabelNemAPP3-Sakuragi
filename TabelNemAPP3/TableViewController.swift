@@ -8,26 +8,23 @@
 import UIKit
 
 class TableViewController: UITableViewController {
-    var names: [String] = [
-            "阿部",
-            "石田",
-            "上田",
-            "遠藤",
-            "及川",
-            "梶原",
-            "菊池",
-            "工藤",
-        ]
+    var taskArray: [String] = []
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+   override func viewWillAppear(_ animated: Bool) {
+       super.viewWillAppear(animated)
+       let userDefaults = UserDefaults.standard
+       if userDefaults.object(forKey: "add") != nil {
+           taskArray = userDefaults.object(forKey: "add") as! [String]
+       }
+       tableView.reloadData()
+       
+   }
 
     // MARK: - Table view data source
 
@@ -38,14 +35,14 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return names.count
+        return taskArray.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NameCell", for: indexPath)
 
-        cell.textLabel?.text = names[indexPath.row]
+        cell.textLabel?.text = taskArray[indexPath.row]
         return cell
     }
 
