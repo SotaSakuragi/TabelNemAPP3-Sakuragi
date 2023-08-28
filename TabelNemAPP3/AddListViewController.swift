@@ -14,8 +14,11 @@ class AddListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let userDefaults = UserDefaults.standard
+        if userDefaults.object(forKey: "add") != nil{
+            taskArray = userDefaults.object(forKey: "add") as! [String]
+            // Do any additional setup after loading the view.
+        }
     }
     
     
