@@ -24,7 +24,7 @@ class AddListViewController: UIViewController {
         taskArray.append(addTextField.text!)
         userDefaults.set(taskArray, forKey: "add")
         self.navigationController?.popViewController(animated: true)
-        
+        print(taskArray)
         
     }
     
