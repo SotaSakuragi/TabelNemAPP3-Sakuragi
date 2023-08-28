@@ -63,7 +63,8 @@ class TableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
+     
     }
     */
 
@@ -92,4 +93,25 @@ class TableViewController: UITableViewController {
     }
     */
 
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let userDefaults = UserDefaults.standard
+        
+        print("削除前",taskArray)
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            self.taskArray.remove(at: indexPath.row)    //ここに記述
+            
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+        print("削除後",taskArray)
+        userDefaults.set(taskArray, forKey: "add")
+        
+        
+        
+
+    }
+    
+    
 }
