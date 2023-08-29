@@ -145,9 +145,9 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ppv-mL-MaI">
-                                <rect key="frame" x="159" y="237" width="75" height="35"/>
+                                <rect key="frame" x="167" y="237" width="59" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="追加"/>
                                 <connections>
                                     <action selector="addTask:" destination="0XK-Oo-qUE" eventType="touchUpInside" id="y0w-U3-vQA"/>
                                 </connections>
